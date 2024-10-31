@@ -1,10 +1,11 @@
 import {Text, View, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity} from "react-native";
 import {useState} from "react";
-
+import {useRouter} from "expo-router";
 
 export default function Index() {
-    const [input, setInput] = useState('')
-    const [result, setResult] = useState('')
+    const [input, setInput] = useState('');
+    const [result, setResult] = useState('');
+    const router = useRouter();
     const onButtonPress = (value: any) => {
         if (value === '=') {
             try {
@@ -45,7 +46,7 @@ export default function Index() {
                 />
             </View>
             <View style={styles.buttonContainer}>
-                {['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '0', 'C', '.', '+', '', '', '^', '='].map(
+                {['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '0', 'C', '.', '+', '', '^', '='].map(
                     (item, index) => (
                         <TouchableOpacity
                             key={index}
@@ -56,7 +57,17 @@ export default function Index() {
                         </TouchableOpacity>
                     )
                 )}
+                <TouchableOpacity
+                    style={[styles.button, {backgroundColor:"#ff9f0a"}]}
+                    onPress={() => router.push('/converters')}
+                >
+                    <Text style={styles.buttonText}>⇄</Text>
+                </TouchableOpacity>
             </View>
+
+
+
+
         </SafeAreaView>
     );
 }
