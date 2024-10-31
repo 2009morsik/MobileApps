@@ -9,7 +9,7 @@ export default function RootLayout() {
             <Stack.Screen name="convLengthComponent"
                           options={{headerShown: false}}
             />
-            <Stack.Screen name="converter"
+            <Stack.Screen name="converters"
                           options={{headerShown: false}}
             />
         </Stack>
