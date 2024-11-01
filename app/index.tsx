@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         paddingHorizontal: 10
     }, inputText: {
-        fontSize: 30,
+        fontSize: 50,
         color: 'white',
 
     },

@@ -31,18 +31,19 @@ const ConverterLength = () => {
                 <Text style={styles.text}>←</Text>
             </TouchableOpacity>
             <TextInput style={styles.text}
+                       placeholderTextColor="#fff"
                        placeholder="введите значение"
                        keyboardType="numeric"
                        value={inputValue}
                        onChangeText={setInputValue}
             />
             <View>
-                <Picker selectedValue={fromUnit} onValueChange={(itemValue) => setFromUnit(itemValue)}>
+                <Picker style={styles.text} selectedValue={fromUnit} onValueChange={(itemValue) => setFromUnit(itemValue)}>
                     {Object.keys(units).map((unit) => (
                         <Picker.Item key={unit} label={unit} value={unit}/>
                     ))}
                 </Picker>
-                <Picker selectedValue={toUnit} onValueChange={(itemValue) => setToUnit(itemValue)}>
+                <Picker style={styles.text} selectedValue={toUnit} onValueChange={(itemValue) => setToUnit(itemValue)}>
                     {Object.keys(units).map((unit) => (
                         <Picker.Item key={unit} label={unit} value={unit}/>
                     ))}
@@ -58,7 +59,7 @@ const ConverterLength = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'gray',
+        backgroundColor: 'black',
     }, resultText: {
         fontSize: 40,
         color: 'white',
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
         borderRadius: 45,
         height: 60,
         width: 400,
-        backgroundColor: '#ccc',
+        backgroundColor: '#ff9f0a',
         justifyContent: 'center',
         alignItems: 'center',
     },

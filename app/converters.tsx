@@ -1,7 +1,6 @@
-import React, {useState} from "react";
-import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Image} from 'react-native';
+import React from "react";
+import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Image} from 'react-native';
 import {useRouter} from "expo-router";
-import {Picker} from "@react-native-picker/picker"
 
 const ConvertersScreen = () => {
     const router = useRouter();
@@ -44,14 +43,16 @@ const ConvertersScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'gray'
+        backgroundColor: 'black'
     },
     button: {
         backgroundColor: "white",
-        height: 115,
-        width: 115,
+        height: 120,
+        width: 120,
         borderRadius: 30,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderWidth: 7,
+        borderColor: 'gray',
     },
     buttonText: {
         fontSize: 35,
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     picture: {
         width: 90,
         height: 90,
-        margin: 10
+        margin: 10,
     },
     pictureContainer: {
         flexDirection: "row",
