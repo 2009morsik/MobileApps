@@ -11,15 +11,35 @@ const ConvertersScreen = () => {
             <TouchableOpacity onPress={() => router.back()} style={styles.buttonExit}>
                 <Text style={styles.text}>←</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-                style={[styles.button, {backgroundColor: "#ff9f0a"}]}
-                onPress={() => router.push('/convLengthComponent')}>
-                <Image source={require('../assets/images/school.png') } style={styles.picture}></Image>
-            </TouchableOpacity>
+            <View style={styles.pictureContainer}>
+                <TouchableOpacity
+                    style={[styles.button]}
+                    onPress={() => router.push('/convLengthComponent')}>
+                    <Image source={require('../assets/images/school.png')} style={styles.picture}></Image>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.button]}
+                    onPress={() => router.push('/convTemp')}>
+                    <Image source={require('../assets/images/temperature.png')} style={styles.picture}></Image>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.button]}
+                    onPress={() => router.push('/convWeight')}>
+                    <Image source={require('../assets/images/weight.png')} style={styles.picture}></Image>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.button]}
+                    onPress={() => router.push('/convSquare')}>
+                    <Image source={require('../assets/images/area.png')} style={styles.picture}></Image>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.button]}
+                    onPress={() => router.push('/convData')}>
+                    <Image source={require('../assets/images/file.png')} style={styles.picture}></Image>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
-
-
 }
 const styles = StyleSheet.create({
     container: {
@@ -28,12 +48,10 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: "white",
-        height:115,
-        width:115,
+        height: 115,
+        width: 115,
         borderRadius: 30,
-        justifyContent:'center'
-
-
+        justifyContent: 'center'
     },
     buttonText: {
         fontSize: 35,
@@ -51,10 +69,16 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 35,
     },
-    picture:{
+    picture: {
         width: 90,
         height: 90,
         margin: 10
-    }
+    },
+    pictureContainer: {
+        flexDirection: "row",
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gap: 20,
+    },
 })
 export default ConvertersScreen;

@@ -58,14 +58,12 @@ export default function Index() {
                     )
                 )}
                 <TouchableOpacity
-                    style={[styles.button, {backgroundColor:"#ff9f0a"}]}
+                    style={[styles.button, {backgroundColor: "#ff9f0a"}]}
                     onPress={() => router.push('/converters')}
                 >
                     <Text style={styles.buttonText}>⇄</Text>
                 </TouchableOpacity>
             </View>
-
-
 
 
         </SafeAreaView>

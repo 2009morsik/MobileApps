@@ -3,24 +3,55 @@ import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput} from 
 import {useRouter} from "expo-router";
 import {Picker} from "@react-native-picker/picker"
 
-const ConverterLength = () => {
+const ConverterTemperature = () => {
     const router = useRouter();
-    type Unit = 'meters' | 'kilometers' | 'miles' | 'centimeters';
+    type Unit = 'celsius' | 'fahrenheit' | 'kelvin';
     const [inputValue, setInputValue] = useState('');
-    const [fromUnit, setFromUnit] = useState<Unit>('meters');
-    const [toUnit, setToUnit] = useState<Unit>('kilometers');
+    const [fromUnit, setFromUnit] = useState<Unit>('celsius');
+    const [toUnit, setToUnit] = useState<Unit>('fahrenheit');
     const [result, setResult] = useState<number | string>('');
 
     const units: Record<Unit, number> = {
-        meters: 0.001,
-        kilometers: 1,
-        miles: 0.621371,
-        centimeters: 0.00001,
+        celsius: 1,
+        fahrenheit: 1,
+        kelvin: 0.00001,
     };
 
-    const convertLength = () => {
-        const fromValue = parseFloat(inputValue) * units[fromUnit];
-        const convertedValue = fromValue / units[toUnit];
+    const convertTemp = () => {
+        const inputTemp = parseFloat(inputValue);
+        let inCelsius: number;
+
+        // Конвертация во время Цельсия
+        switch (fromUnit) {
+            case 'celsius':
+                inCelsius = inputTemp;
+                break;
+            case 'fahrenheit':
+                inCelsius = (inputTemp - 32) * 5 / 9;
+                break;
+            case 'kelvin':
+                inCelsius = inputTemp - 273.15;
+                break;
+            default:
+                inCelsius = inputTemp;
+        }
+
+        // Конвертация из Цельсия в целевую единицу
+        let convertedValue: number;
+        switch (toUnit) {
+            case 'celsius':
+                convertedValue = inCelsius;
+                break;
+            case 'fahrenheit':
+                convertedValue = (inCelsius * 9 / 5) + 32;
+                break;
+            case 'kelvin':
+                convertedValue = inCelsius + 273.15;
+                break;
+            default:
+                convertedValue = inCelsius;
+        }
+
         setResult(convertedValue);
     };
 
@@ -48,7 +79,7 @@ const ConverterLength = () => {
                     ))}
                 </Picker>
             </View>
-            <TouchableOpacity style={styles.buttonConv} onPress={convertLength}>
+            <TouchableOpacity style={styles.buttonConv} onPress={convertTemp}>
                 <Text style={styles.text}>Конвертировать</Text>
             </TouchableOpacity>
             {result !== '' && <Text style={styles.text}>Результат: {result}</Text>}
@@ -95,4 +126,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ConverterLength;
+export default ConverterTemperature;

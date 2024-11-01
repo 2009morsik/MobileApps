@@ -3,22 +3,22 @@ import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput} from 
 import {useRouter} from "expo-router";
 import {Picker} from "@react-native-picker/picker"
 
-const ConverterLength = () => {
+const ConverterSquare = () => {
     const router = useRouter();
-    type Unit = 'meters' | 'kilometers' | 'miles' | 'centimeters';
+    type Unit = 'metersSquare' | 'kilometersSquare' | 'milesSquare' | 'centimetersSquare';
     const [inputValue, setInputValue] = useState('');
-    const [fromUnit, setFromUnit] = useState<Unit>('meters');
-    const [toUnit, setToUnit] = useState<Unit>('kilometers');
+    const [fromUnit, setFromUnit] = useState<Unit>('metersSquare');
+    const [toUnit, setToUnit] = useState<Unit>('kilometersSquare');
     const [result, setResult] = useState<number | string>('');
 
     const units: Record<Unit, number> = {
-        meters: 0.001,
-        kilometers: 1,
-        miles: 0.621371,
-        centimeters: 0.00001,
+        metersSquare: 0.000001,
+        kilometersSquare: 1,
+        milesSquare: 2.58999,
+        centimetersSquare: 0.0000000001,
     };
 
-    const convertLength = () => {
+    const convertSquare = () => {
         const fromValue = parseFloat(inputValue) * units[fromUnit];
         const convertedValue = fromValue / units[toUnit];
         setResult(convertedValue);
@@ -48,7 +48,7 @@ const ConverterLength = () => {
                     ))}
                 </Picker>
             </View>
-            <TouchableOpacity style={styles.buttonConv} onPress={convertLength}>
+            <TouchableOpacity style={styles.buttonConv} onPress={convertSquare}>
                 <Text style={styles.text}>Конвертировать</Text>
             </TouchableOpacity>
             {result !== '' && <Text style={styles.text}>Результат: {result}</Text>}
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ConverterLength;
+export default ConverterSquare;
