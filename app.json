@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "my-app",
+    "name": "calculator",
     "slug": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -31,6 +31,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "95a0c8e0-ed82-469b-acf5-c81561ce596e"
+      }
     }
   }
 }
