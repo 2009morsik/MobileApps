@@ -5,7 +5,7 @@ import {Picker} from "@react-native-picker/picker"
 
 const ConverterWeight = () => {
     const router = useRouter();
-    type Unit = 'grams' | 'kilograms' | 'pounds';
+    type Unit = 'grams' | 'kilograms' | 'pounds'| 'tonne';
     const [inputValue, setInputValue] = useState('');
     const [fromUnit, setFromUnit] = useState<Unit>('grams');
     const [toUnit, setToUnit] = useState<Unit>('kilograms');
@@ -15,6 +15,7 @@ const ConverterWeight = () => {
         grams: 0.001,
         kilograms: 1,
         pounds: 0.454,
+        tonne:1000,
     };
 
     const convertWeight = () => {
